@@ -1,7 +1,7 @@
 import sys
 import math
 import binascii
-
+import struct
 
 # campos = [ "NUM", "1.a", "1.b", "1.c", "1.d", "2.a", "2.b", "2.c", "2.d", "2.e", "2.f", "2.g", "2.h", "2.i", "3.a", "3.b", "3.c" ]
 
@@ -33,6 +33,10 @@ def tohex(val, nbits):
   return hex((val + (1 << nbits)) % (1 << nbits))
 
 
+# https://stackoverflow.com/a/23624284
+
+def float_to_hex(f):
+    return hex(struct.unpack('<I', struct.pack('<f', f))[0])
 
 num = int(input("Qual é o teu numero de aluno?  "))
 
@@ -120,3 +124,18 @@ B = var1Hex[-2:]    # 8 less significant bits of var1 in hexa, meaning, the firs
 C = A + B + '0000'
 
 print ("a)", C)
+
+# https://stackoverflow.com/a/1592362
+test = struct.unpack('!f', bytes.fromhex(C))[0]
+
+print ("b)", format(test, '.2g') + " <-- Lembra-te de contar so os algarismos antes do e")
+
+aux = 1.05*(2**(-var2))
+
+auxHex = float_to_hex(aux)[2:]
+
+auxBin = '{:0>32}'.format(bin(int(auxHex,16))[2:])
+
+exp = auxBin[1:9]
+
+print("c)", hex(int(exp, 2))[2:])
