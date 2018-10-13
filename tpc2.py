@@ -77,41 +77,50 @@ print("c)", bin(var3)[-8:]) #returns str
 print("d)", hex(var3)[-2:]) #returns str
 
 print ("Exercício 2")
-# var3Hexa = hex(var3)[2:] #return str
-# var3Bin = bin(var3)[2:] #returns str
-#
-# test =  var3 >> 8
-#
-# print ("a)", '{:0>4}'.format(hex(test)[2:]))
-#
-# test = var3 >> 2
-# print ("b)", '{:0>4}'.format(hex(test)[2:]))
-#
-# test = var3 << 5
-#
-# print ("c)", '{:0>4}'.format(hex(test)[2:]))
-#
-# aux = list('{:0>16}'.format(bin(var3)[2:]))
-# aux = shift_list(aux, +8)
-# aux = int(''.join(aux), 2)
-#
-# print ("d)", '{:0>4}'.format(hex(aux)[2:]))
-#
-# var3BinInt = int(var3Bin)
-#
-# valueToSum = int('82', 16)
-#
-# newValue = '{:0>4}'.format(hex(var3 + valueToSum)[2:])
-#
-# newValue = '{:0>4}'.format(hex(var3 - valueToSum)[2:])
-#
-# print ("f)", newValue)
-#
-# print ("g)", tohex(-var3, 16)[2:])
-#
-# print ("h)", tohex(-var3, 32)[2:])
-#
-# print ("i)", '{:0>4}'.format(hex(int(var3/4))[2:]))
+
+# RESPOSTAS SEMPRE COM 16bits, ou seja, 4 digitos em hexadecimal
+# var3 ja e hexadecimal.
+
+var3Hexa = hex(var3)[2:] #return str
+var3Bin = bin(var3)[2:] #returns str
+
+var3ToDec = int(str(var3), 16)
+test =  var3ToDec >> 8
+print ("a)", '{:0>4}'.format(hex(test)[2:]))
+
+
+test = var3ToDec >> 2
+print ("b)", '{:0>4}'.format(hex(test)[2:]))
+
+test = var3ToDec << 5
+test1 = hex(test)[2:]    # without the 0x
+print ("c)", '{:0>4}'.format(hex(test)[2:]) + " --> " + test1[-4:])
+
+aux = list('{:0>16}'.format(bin(var3ToDec)[2:]))
+
+# print(aux)
+aux = shift_list(aux, +8)
+aux = int(''.join(aux), 2)
+
+print ("d)", '{:0>4}'.format(hex(aux)[2:]))
+
+var3BinInt = int(var3Bin)
+
+valueToSum = int('82', 16)
+
+newValue = '{:0>4}'.format(hex(var3ToDec + valueToSum)[2:])
+
+print ("e)", newValue)
+
+newValue = '{:0>4}'.format(hex(var3ToDec - valueToSum)[2:])
+
+print ("f)", newValue)
+
+print ("g)", tohex(-var3, 16)[2:])
+
+print ("h)", tohex(-var3, 32)[2:])
+
+print ("i)", '{:0>4}'.format(hex(int(var3ToDec/4))[2:]))
 
 print ("Exercício 3")
 
