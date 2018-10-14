@@ -133,15 +133,16 @@ newValue = '{:0>4}'.format(hex(var3ToDec + valueToSum)[2:])
 print ("e)", newValue)
 var2e = newValue
 
+valueToSum = 82
 newValue = '{:0>4}'.format(hex(var3ToDec - valueToSum)[2:])
 print ("f)", newValue)
 var2f = newValue
 
-print ("g)", tohex(-var3, 16)[2:])
-var2g = tohex(-var3, 16)[2:]
+print ("g)", tohex(-var3ToDec, 16)[2:])
+var2g = tohex(-var3ToDec, 16)[2:]
 
-print ("h)", tohex(-var3, 32)[2:])
-var2h = tohex(-var3, 32)[2:]
+print ("h)", tohex(-var3ToDec, 32)[2:])
+var2h = tohex(-var3ToDec, 32)[2:]
 
 print ("i)", '{:0>4}'.format(hex(int(var3ToDec/4))[2:]))
 var2i = '{:0>4}'.format(hex(int(var3ToDec/4))[2:])
