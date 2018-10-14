@@ -42,6 +42,17 @@ def float_to_hex(f):
     return hex(struct.unpack('<I', struct.pack('<f', f))[0])
 
 
+
+# Function to extract k bits from p position
+# and returns the extracted value as integer
+def bitExtracted(number, k, p):
+    return ( ((1 << k) - 1)  &  (number >> (p-1) ) );
+
+# number is from where 'k' bits are extracted
+# from p position
+
+
+
 ##################
 # Começo do script
 ##################
@@ -84,8 +95,14 @@ for i in range(0,16):
 
 newBin20 = int(''.join(newBin), 2)  #returns int
 
-print("b)", '{:0>5}'.format(hex(newBin20)[2:]))
-var1b = '{:0>5}'.format(hex(newBin20)[2:])
+# print("b)", '{:0>5}'.format(hex(newBin20)[2:]))
+# var1b = '{:0>5}'.format(hex(newBin20)[2:])
+
+#sugeriram que, ao ser pedido a extração dos bits 19º ao 3º, e fazer um shift right de 3 bits.
+nvalue = num >> 3
+print("b)", '{:0>5}'.format(hex(nvalue)[2:]))
+var1b = '{:0>5}'.format(hex(nvalue)[2:])
+
 
 print("c)", bin(var3)[-8:]) #returns str
 var1c = bin(var3)[-8:]
